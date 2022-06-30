@@ -35,6 +35,11 @@ export default gql`
     season_number: Int
   }
 
+  type TVCast {
+    id: Int
+    cast: [Cast]
+  }
+
   type TV {
     page: Int
     results: [TVResults]!

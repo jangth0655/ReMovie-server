@@ -5,6 +5,15 @@ export default gql`
     name: String
   }
 
+  type Cast {
+    id: Int
+    profile_path: String
+    cast_id: String
+    character: String
+    name: String
+    original_name: String
+  }
+
   type MovieResult {
     poster_path: String
     backdrop_path: String
@@ -28,6 +37,11 @@ export default gql`
     title: String!
     video: Boolean
     vote_average: Int
+  }
+
+  type MovieCast {
+    id: Int
+    cast: [Cast]
   }
 
   type Movie {
