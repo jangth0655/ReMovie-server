@@ -4,12 +4,11 @@ export default gql`
     poster_path: String
     backdrop_path: String
     first_air_date: String
-    vote_average: Int
+    vote_average: Float
     overview: String
     id: Int!
     original_name: String
-    name: String!
-    vote_count: Int
+    name: String
   }
 
   type TVDetail {
@@ -21,7 +20,7 @@ export default gql`
     first_air_date: String
     last_air_date: String
     genres: [Genres]
-    vote_average: Int
+    vote_average: Float
     seasons: [Season]
   }
 

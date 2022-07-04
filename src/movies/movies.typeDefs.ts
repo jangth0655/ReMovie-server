@@ -1,5 +1,16 @@
 import { gql } from "apollo-server";
 export default gql`
+  type VideoResult {
+    name: String
+    key: String
+    id: String
+  }
+
+  type Video {
+    id: Int
+    results: [VideoResult]
+  }
+
   type Genres {
     id: Int
     name: String
@@ -20,10 +31,10 @@ export default gql`
     overview: String
     id: Int!
     original_title: String
-    title: String!
+    title: String
     vote_count: Int
     video: Boolean
-    vote_average: Int
+    vote_average: Float
     release_date: String
   }
 
@@ -34,9 +45,11 @@ export default gql`
     genres: [Genres]
     imdb_id: String
     original_title: String
-    title: String!
+    title: String
+    overview: String
     video: Boolean
-    vote_average: Int
+    vote_average: Float
+    release_date: String
   }
 
   type MovieCast {
