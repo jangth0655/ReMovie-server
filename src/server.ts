@@ -1,10 +1,7 @@
 import "dotenv/config";
 import { ApolloServer } from "apollo-server-express";
 import { resolvers, typeDefs } from "./schema";
-import {
-  ApolloServerPluginLandingPageDisabled,
-  ApolloServerPluginLandingPageGraphQLPlayground,
-} from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import express from "express";
 import http from "http";
 
@@ -16,7 +13,7 @@ async function startApolloServer() {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [ApolloServerPluginLandingPageDisabled()],
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
     introspection: true,
   });
   await server.start();
