@@ -3,8 +3,10 @@
     "outDir": "./built",
     "allowJs": true,
     "target": "es5",
-    "strict": true
-    //"esModuleInterop": true
+    /* "strict": true, */
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "sourceMap": true
   },
   "include": ["./src/**/*"]
 }
