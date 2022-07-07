@@ -1,5 +1,6 @@
 import "dotenv/config";
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer } from "apollo-server";
+//import { ApolloServer } from "apollo-server-express";
 import { resolvers, typeDefs } from "./schema";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import express from "express";
@@ -7,7 +8,7 @@ import http from "http";
 
 const PORT = process.env.PORT;
 
-async function startApolloServer() {
+/* async function startApolloServer() {
   const app = express();
   const httpServer = http.createServer(app);
   const server = new ApolloServer({
@@ -26,8 +27,15 @@ async function startApolloServer() {
     `🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`
   );
 }
-startApolloServer();
+startApolloServer(); */
 
-/*   server.listen().then(({ url }) => {
-    console.log(`Running on ${url}`);
-  }); */
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+  introspection: true,
+});
+
+server.listen().then(({ url }) => {
+  console.log(`Running on ${url}`);
+});
