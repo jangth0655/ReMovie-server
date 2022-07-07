@@ -50,6 +50,7 @@ export default gql`
     video: Boolean
     vote_average: Float
     release_date: String
+    isLiked: Boolean
   }
 
   type MovieCast {

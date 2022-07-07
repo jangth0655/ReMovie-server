@@ -22,6 +22,7 @@ export default gql`
     genres: [Genres]
     vote_average: Float
     seasons: [Season]
+    isLiked: Boolean
   }
 
   type Season {
