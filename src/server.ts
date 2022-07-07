@@ -36,6 +36,6 @@ const server = new ApolloServer({
   introspection: true,
 });
 
-server.listen().then(({ url }) => {
+server.listen({ prot: PORT || 4000 }).then(({ url }) => {
   console.log(`Running on ${url}`);
 });
