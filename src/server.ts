@@ -1,10 +1,11 @@
 import "dotenv/config";
 import { ApolloServer } from "apollo-server";
-//import { ApolloServer } from "apollo-server-express";
 import { resolvers, typeDefs } from "./schema";
 import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 import express from "express";
 import http from "http";
+//import { InMemoryLRUCache } from "@apollo/utils.keyvaluecache";
+//import { ApolloServer } from "apollo-server-express";
 
 const PORT = process.env.PORT;
 
@@ -32,6 +33,8 @@ startApolloServer(); */
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  cache: "bounded",
+  csrfPrevention: true,
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   introspection: true,
 });
