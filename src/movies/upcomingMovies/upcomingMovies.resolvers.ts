@@ -1,3 +1,5 @@
+const fetch = require("node-fetch");
+
 const resolvers = {
   Query: {
     upcomingMovies: async () => {
