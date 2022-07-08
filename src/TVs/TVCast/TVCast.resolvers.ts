@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const resolver = {
   Query: {
     TVCast: async (_, { id }) => {
